@@ -5,7 +5,7 @@ PSQL=psql -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) -d $(DB_NAME)
 
 build:
 	@echo "Creating database schema..."
-	$(PSQL) -f database/run_all.sql
+	$(PSQL) -f database/create_db_schema.sql
 	@echo "Build complete."
 
 reset:

@@ -32,6 +32,17 @@ CREATE TABLE track (
     unit_price NUMERIC(10,2)
 );
 
+CREATE TABLE playlist (
+    playlist_id INTEGER PRIMARY KEY,
+    name VARCHAR(120)
+);
+
+CREATE TABLE playlist_track (
+    playlist_id INTEGER,
+    track_id INTEGER,
+    PRIMARY KEY (playlist_id, track_id)
+);
+
 CREATE TABLE customer (
     customer_id INTEGER PRIMARY KEY,
     first_name VARCHAR(40),
@@ -54,6 +65,7 @@ CREATE TABLE employee (
     first_name VARCHAR(20),
     title VARCHAR(30),
     reports_to INTEGER,
+    levels VARCHAR(2),
     birth_date TIMESTAMP,
     hire_date TIMESTAMP,
     address VARCHAR(70),
@@ -84,15 +96,4 @@ CREATE TABLE invoice_line (
     track_id INTEGER,
     unit_price NUMERIC(10,2),
     quantity INTEGER
-);
-
-CREATE TABLE playlist (
-    playlist_id INTEGER PRIMARY KEY,
-    name VARCHAR(120)
-);
-
-CREATE TABLE playlist_track (
-    playlist_id INTEGER,
-    track_id INTEGER,
-    PRIMARY KEY (playlist_id, track_id)
 );
