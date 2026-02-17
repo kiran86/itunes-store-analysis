@@ -1,0 +1,7 @@
+ALTER TABLE employee
+ALTER COLUMN birth_date TYPE DATE
+USING TO_DATE(birth_date, 'DD-MM-YYYY');
+
+ALTER TABLE employee
+ALTER COLUMN hire_date TYPE DATE
+USING TO_DATE(hire_date, 'DD-MM-YYYY');

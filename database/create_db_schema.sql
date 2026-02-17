@@ -16,6 +16,10 @@
 \copy invoice FROM 'data/invoice.csv' DELIMITER ',' CSV HEADER;
 \copy invoice_line FROM 'data/invoice_line.csv' DELIMITER ',' CSV HEADER;
 
+-- Fix date formats in employee table
+\echo 'Fixing date formats in employee table...'
+\i database/02_fix_dates.sql
+
 -- Add constraints to ensure data integrity
 \echo 'Adding constraints...'
 \i database/02_add_constraints.sql

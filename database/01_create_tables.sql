@@ -66,8 +66,9 @@ CREATE TABLE employee (
     title VARCHAR(30),
     reports_to INTEGER,
     levels VARCHAR(2),
-    birth_date TIMESTAMP,
-    hire_date TIMESTAMP,
+    -- As the date is in "DD-MM-YYYY" format, store it as text
+    birth_date TEXT, 
+    hire_date TEXT,
     address VARCHAR(70),
     city VARCHAR(40),
     state VARCHAR(40),
@@ -81,7 +82,7 @@ CREATE TABLE employee (
 CREATE TABLE invoice (
     invoice_id INTEGER PRIMARY KEY,
     customer_id INTEGER,
-    invoice_date TIMESTAMP,
+    invoice_date DATE,
     billing_address VARCHAR(70),
     billing_city VARCHAR(40),
     billing_state VARCHAR(40),
