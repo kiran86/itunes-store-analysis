@@ -27,5 +27,6 @@ reset:
 
 analysis:
 	@echo "Running analytics queries..."
-	@$(PSQL) -f analytics/01_base_views.sql
-	@$(PSQL) -f analytics/02_customer_analytics.sql
+	@$(PSQL) -f analytics/run_analytics.sql > analysis.log 2>&1 \
+	&& echo "$(GREEN)Analytics complete. Check analysis.log for results.$(NC)" \
+	|| (echo "$(RED)Analytics failed. Check analysis.log for details.$(NC)"; exit 1)
