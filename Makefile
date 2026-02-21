@@ -5,7 +5,7 @@ GREEN=\033[0;32m
 RED=\033[0;31m
 NC=\033[0m
 
-PSQL=psql -q -v ON_ERROR_STOP=1 \
+PSQL=PGPASSWORD=$(DB_PASSWORD) psql -q -v ON_ERROR_STOP=1 \
 	-P pager=off \
 	-P border=2 \
 	-P linestyle=unicode \
@@ -21,8 +21,8 @@ build:
 
 reset:
 	@echo "Dropping and recreating database..."
-	dropdb -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) $(DB_NAME) || true
-	createdb -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) $(DB_NAME)
+	@PGPASSWORD=$(DB_PASSWORD) dropdb -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) $(DB_NAME) || true
+	@PGPASSWORD=$(DB_PASSWORD) createdb -h $(DB_HOST) -p $(DB_PORT) -U $(DB_USER) $(DB_NAME)
 	$(MAKE) build
 
 analysis:
