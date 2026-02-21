@@ -82,7 +82,9 @@ Do not commit `.env` to GitHub.
 
 Run:
 
+```bash
 make reset
+```
 
 This will:
 
@@ -99,7 +101,9 @@ This will:
 
 Run:
 
+```bash
 make analysis
+```
 
 This executes all business analysis categories in a structured and
 formatted manner.
