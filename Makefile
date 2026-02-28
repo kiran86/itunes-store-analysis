@@ -30,3 +30,8 @@ analysis:
 	@$(PSQL) -f analytics/run_analytics.sql > analysis.log 2>&1 \
 	&& echo "$(GREEN)Analytics complete. Check analysis.log for results.$(NC)" \
 	|| (echo "$(RED)Analytics failed. Check analysis.log for details.$(NC)"; exit 1)
+
+reports:
+	@echo "Generating reports..."
+	@$(PSQL) -f reports_md/run_analytics_md.sql > itunes_analysis_report.md
+	@echo "$(GREEN)Report generated: itunes_analysis_report.md$(NC)"
